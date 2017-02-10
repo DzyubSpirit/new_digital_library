@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+{% block library %}
+    <h3>Title:</h3>{{ book.title }}
+    <h3>Authors:</h3>
+    {% for author in book.authors.all %}
+        {{ author.name }}
+        {% if not forloop.last %},
+        {% endif %}
+    {% endfor %}
+    <br>
+    <a href="/library/">
+        <div class="btn btn-danger">Back</div>
+    </a>
+{% endblock %}

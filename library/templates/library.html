@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+{% block library %}
+    <table class="table table-hover">
+    <tr>
+        <th>#</th>
+        <th><h4>Title</h4></th>
+        <th><h4>Authors</h4></th>
+    </tr>
+    {% for book in books %}
+            <tr>
+            <th>{{ forloop.counter }}</th>
+            <th><a href="/library/book/{{ book.id }}">{{ book.title }}</a></th>
+            <th>
+            {% for author in book.authors.all %}
+                {{ author.name }}
+                {% if not forloop.last %},
+                {% endif %}
+            {% endfor %}
+            </th>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}
