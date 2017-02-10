@@ -1,0 +1,11 @@
+{% extends 'main.html' %}
+{% block library %}
+<ul>
+{% for author in authors %}
+    <li>
+        {{ author.name }}
+    <div class="btn btn-info btn-sm">Redact</div>
+    </li>
+{% endfor %}
+</ul>
+{% endblock %}
